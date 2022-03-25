@@ -38,6 +38,8 @@ namespace ASV
         {
             observer = CoreServices.GetSpatialAwarenessSystemDataProvider<IMixedRealitySceneUnderstandingObserver>();
 
+                Debug.Log($"Start -> observer IsRunning {observer.IsRunning}");
+
             if (observer == null)
             {
                 Debug.LogError("Couldn't access Scene Understanding Observer! Please make sure the current build target is set to Universal Windows Platform. "
@@ -50,6 +52,7 @@ namespace ASV
 
         protected override void OnEnable()
         {
+                Debug.Log($"IMixedRealitySpatialAwarenessObservationHandler>OnEnable");
             RegisterEventHandlers<IMixedRealitySpatialAwarenessObservationHandler<SpatialAwarenessSceneObject>, SpatialAwarenessSceneObject>();
         }
 
@@ -69,6 +72,7 @@ namespace ASV
 
         public void OnObservationAdded(MixedRealitySpatialAwarenessEventData<SpatialAwarenessSceneObject> eventData)
         {
+                Debug.Log($"OnObservationAdded");
             // This method called everytime a SceneObject created by the SU observer
             // The eventData contains everything you need do something useful
 
