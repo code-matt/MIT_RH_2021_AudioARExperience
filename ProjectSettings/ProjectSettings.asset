@@ -138,6 +138,7 @@ PlayerSettings:
   preloadedAssets:
   - {fileID: 4158375393754395292, guid: 5621812c06d818648a43522f3ed6710b, type: 2}
   - {fileID: 954315419463870648, guid: 559c0d6015184374794939d70e548296, type: 2}
+  - {fileID: 0}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -655,7 +656,6 @@ PlayerSettings:
   metroFTAName: 
   metroFTAFileTypes: []
   metroProtocolName: 
-  vcxProjDefaultLanguage: 
   XboxOneProductId: 
   XboxOneUpdateKey: 
   XboxOneSandboxId: 

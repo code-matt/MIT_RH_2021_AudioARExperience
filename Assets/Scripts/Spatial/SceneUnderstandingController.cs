@@ -22,32 +22,6 @@ namespace ASV
         [SerializeField]
         private Transform InstantiatedParent = null;
 
-        [Header("UI")]
-        [SerializeField]
-        private Interactable autoUpdateToggle = null;
-        [SerializeField]
-        private Interactable quadsToggle = null;
-        [SerializeField]
-        private Interactable inferRegionsToggle = null;
-        [SerializeField]
-        private Interactable meshesToggle = null;
-        [SerializeField]
-        private Interactable maskToggle = null;
-        [SerializeField]
-        private Interactable platformToggle = null;
-        [SerializeField]
-        private Interactable wallToggle = null;
-        [SerializeField]
-        private Interactable floorToggle = null;
-        [SerializeField]
-        private Interactable ceilingToggle = null;
-        [SerializeField]
-        private Interactable worldToggle = null;
-        [SerializeField]
-        private Interactable completelyInferred = null;
-        [SerializeField]
-        private Interactable backgroundToggle = null;
-
         #endregion Serialized Fields
 
         private IMixedRealitySceneUnderstandingObserver observer;
@@ -70,7 +44,6 @@ namespace ASV
                     + "Visit https://docs.microsoft.com/windows/mixed-reality/mrtk-unity/features/spatial-awareness/scene-understanding for more information.");
                 return;
             }
-            InitToggleButtonState();
             instantiatedPrefabs = new List<GameObject>();
             observedSceneObjects = new Dictionary<SpatialAwarenessSurfaceTypes, Dictionary<int, SpatialAwarenessSceneObject>>();
         }
@@ -116,6 +89,7 @@ namespace ASV
                 prefab.transform.SetPositionAndRotation(eventData.SpatialObject.Position, eventData.SpatialObject.Rotation);
                 float sx = eventData.SpatialObject.Quads[0].Extents.x;
                 float sy = eventData.SpatialObject.Quads[0].Extents.y;
+                Debug.Log($"InstantiatePrefab {sx},{sy}");
                 prefab.transform.localScale = new Vector3(sx, sy, .1f);
                 if (InstantiatedParent)
                 {
@@ -208,45 +182,15 @@ namespace ASV
             observer.ClearObservations();
         }
 
-        public void ToggleAutoUpdate()
-        {
-            observer.AutoUpdate = !observer.AutoUpdate;
-        }
-
-        public void ToggleOcclusionMask()
-        {
-            var observerMask = observer.RequestOcclusionMask;
-            observer.RequestOcclusionMask = !observerMask;
-            if (observer.RequestOcclusionMask)
-            {
-                if (!(observer.RequestPlaneData || observer.RequestMeshData))
-                {
-                    observer.RequestPlaneData = true;
-                    quadsToggle.IsToggled = true;
-                }
-            }
-            ClearAndUpdateObserver();
-        }
-
         public void ToggleGeneratePlanes()
         {
-            observer.RequestPlaneData = !observer.RequestPlaneData;
-            if (observer.RequestPlaneData)
-            {
-                observer.RequestMeshData = false;
-                meshesToggle.IsToggled = false;
-            }
+            observer.RequestPlaneData = true;
             ClearAndUpdateObserver();
         }
 
         public void ToggleGenerateMeshes()
         {
-            observer.RequestMeshData = !observer.RequestMeshData;
-            if (observer.RequestMeshData)
-            {
-                observer.RequestPlaneData = false;
-                quadsToggle.IsToggled = false;
-            }
+            observer.RequestPlaneData = true;
             ClearAndUpdateObserver();
         }
 
@@ -286,9 +230,7 @@ namespace ASV
 
             if (observer.SurfaceTypes.IsMaskSet(SpatialAwarenessSurfaceTypes.World))
             {
-                // Ensure we requesting meshes
                 observer.RequestMeshData = true;
-                meshesToggle.GetComponent<Interactable>().IsToggled = true;
             }
             ClearAndUpdateObserver();
         }
@@ -310,25 +252,6 @@ namespace ASV
         #endregion Public Functions
 
         #region Helper Functions
-
-        private void InitToggleButtonState()
-        {
-            // Configure observer
-            autoUpdateToggle.IsToggled = observer.AutoUpdate;
-            quadsToggle.IsToggled = observer.RequestPlaneData;
-            meshesToggle.IsToggled = observer.RequestMeshData;
-            maskToggle.IsToggled = observer.RequestOcclusionMask;
-            inferRegionsToggle.IsToggled = observer.InferRegions;
-
-            // Filter display
-            platformToggle.IsToggled = observer.SurfaceTypes.IsMaskSet(SpatialAwarenessSurfaceTypes.Platform);
-            wallToggle.IsToggled = observer.SurfaceTypes.IsMaskSet(SpatialAwarenessSurfaceTypes.Wall);
-            floorToggle.IsToggled = observer.SurfaceTypes.IsMaskSet(SpatialAwarenessSurfaceTypes.Floor);
-            ceilingToggle.IsToggled = observer.SurfaceTypes.IsMaskSet(SpatialAwarenessSurfaceTypes.Ceiling);
-            worldToggle.IsToggled = observer.SurfaceTypes.IsMaskSet(SpatialAwarenessSurfaceTypes.World);
-            completelyInferred.IsToggled = observer.SurfaceTypes.IsMaskSet(SpatialAwarenessSurfaceTypes.Inferred);
-            backgroundToggle.IsToggled = observer.SurfaceTypes.IsMaskSet(SpatialAwarenessSurfaceTypes.Background);
-        }
 
         private Color ColorForSurfaceType(SpatialAwarenessSurfaceTypes surfaceType)
         {
