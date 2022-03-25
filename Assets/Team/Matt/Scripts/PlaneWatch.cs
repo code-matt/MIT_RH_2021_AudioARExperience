@@ -10,7 +10,9 @@ public class PlaneWatch : MonoBehaviour
 
     public MockPlanes _mockPlanesScript = null;
     public EffectPlanes _effectPlanesScript = null;
-    //private List<EffectPlane> actualEffectPlanes = null;
+
+    public GameObject _mockPlanesContainer = null;
+    public GameObject _effectPlanesContainer = null;
 
     void Start()
     {
@@ -24,14 +26,19 @@ public class PlaneWatch : MonoBehaviour
         {
             foreach (var x in _mockPlanesScript.planes)
             {
-                Debug.Log(x.id);
-                if (_effectPlanesScript.planes.Find(f => f.id == x.id)) {
-                    Debug.Log("Existing effect Plane Found");
+                EffectPlane foundPlane = _effectPlanesScript.planes.Find(f => f.id == x.id);
+                if (foundPlane) {
+                    // this is where we will pass the x/y size from HL2 plane to ours
+                    foundPlane.updateSize(
+                        Random.Range(0f, 2f),
+                        Random.Range(0f, 2f)
+                    );
                 } else
                 {
-                    EffectPlane plane = ScriptableObject.CreateInstance<EffectPlane>();
-                    plane.id = x.id;
-                    _effectPlanesScript.planes.Add(plane);
+                    PlaneWatch planeW = gameObject.GetComponentInParent<PlaneWatch>();
+                    EffectPlane newPlane = planeW._effectPlanesContainer.AddComponent<EffectPlane>();
+                    newPlane.id = x.id;
+                    _effectPlanesScript.planes.Add(newPlane);
                     Debug.Log("Added new effect plane");
                 }
             }

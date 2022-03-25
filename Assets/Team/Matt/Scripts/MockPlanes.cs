@@ -9,9 +9,10 @@ public class MockPlanes : MonoBehaviour
 
     void Start()
     {
-        for (int i = 0; i < 50; i++)
+        for (int i = 0; i < 5; i++)
         {
-           MockPlane plane = ScriptableObject.CreateInstance<MockPlane>();
+           PlaneWatch planeContainer = gameObject.GetComponentInParent<PlaneWatch>();
+           MockPlane plane = planeContainer._mockPlanesContainer.AddComponent<MockPlane>();
            planes.Add(plane);
            plane.plane = GameObject.CreatePrimitive(PrimitiveType.Plane);
            plane.id = Random.Range(0, 47465);
