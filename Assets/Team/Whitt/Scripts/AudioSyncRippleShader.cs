@@ -9,12 +9,21 @@ public class AudioSyncRippleShader : AudioSyncer
 	public float frequencyLevel;
 
 	public Material reactiveMat;
-	public string audioLevelPropertyName_amplitude;
-	public string audioLevelPropertyName_frequency;
+
+	public string PropertyName_amplitude;
+	public string PropertyName_frequency;
+	public string PropertyName_color;
+
 
 	public float levelMax = 1.0f;
 	public float freqMax = 1.0f;
 	public float levelMin = 0f;
+
+	public Color[] beatColors;
+	public Color restColor;
+
+	private int m_randomIndx;
+	private Color m_img;
 
 	private IEnumerator UpdateAmpProperties(float _ampTarget)
 	{
@@ -53,6 +62,32 @@ public class AudioSyncRippleShader : AudioSyncer
 		}
 	}
 
+	private IEnumerator MoveToColor(Color _target)
+	{
+		Color _curr = m_img;
+		Color _initial = _curr;
+		float _timer = 0;
+
+		while (_curr != _target)
+		{
+			_curr = Color.Lerp(_initial, _target, _timer / timeToBeat);
+			_timer += Time.deltaTime;
+
+			m_img = _curr;
+
+			yield return null;
+		}
+
+		m_isBeat = false;
+	}
+
+	private Color RandomColor()
+	{
+		if (beatColors == null || beatColors.Length == 0) return Color.white;
+		m_randomIndx = Random.Range(0, beatColors.Length);
+		return beatColors[m_randomIndx];
+	}
+
 	public override void OnUpdate()
 	{
 		base.OnUpdate();
@@ -60,10 +95,13 @@ public class AudioSyncRippleShader : AudioSyncer
 		if (m_isBeat) return;
 
 		audioLevel = Mathf.Lerp(audioLevel, levelMin, restSmoothTime * Time.deltaTime);
-		reactiveMat.SetFloat(audioLevelPropertyName_amplitude, audioLevel);
+		reactiveMat.SetFloat(PropertyName_amplitude, audioLevel);
 
 		frequencyLevel = Mathf.Lerp(frequencyLevel, levelMin, restSmoothTime * Time.deltaTime);
-		reactiveMat.SetFloat(audioLevelPropertyName_frequency, frequencyLevel);
+		reactiveMat.SetFloat(PropertyName_frequency, frequencyLevel);
+
+		m_img = Color.Lerp(m_img, restColor, restSmoothTime * Time.deltaTime);
+		reactiveMat.SetColor(PropertyName_color, m_img);
 	}
 
 	public override void OnBeat()
@@ -75,5 +113,20 @@ public class AudioSyncRippleShader : AudioSyncer
 
 		StartCoroutine("UpdateAmpProperties", levelMax);
 		StartCoroutine("UpdateFreqProperties", freqMax);
+
+		Color _c = RandomColor();
+
+		StopCoroutine("MoveToColor");
+		StartCoroutine("MoveToColor", _c);
+	}
+
+	private void Start()
+	{
+		bool hasMat = GetComponent<Material>();
+		
+		if(hasMat != false)
+        {
+			m_img = GetComponent<Material>().color;
+		}
 	}
 }

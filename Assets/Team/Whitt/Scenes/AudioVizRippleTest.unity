@@ -239,11 +239,17 @@ MonoBehaviour:
   audioLevel: 0
   frequencyLevel: 0
   reactiveMat: {fileID: 2100000, guid: 01064e10265498f4d9739b7d5a74dd63, type: 2}
-  audioLevelPropertyName_amplitude: Amplitude
-  audioLevelPropertyName_frequency: RippleFrequency
+  PropertyName_amplitude: Amplitude
+  PropertyName_frequency: RippleFrequency
+  PropertyName_color: GradientColor
   levelMax: 1
   freqMax: 0.15
   levelMin: 0
+  beatColors:
+  - {r: 1, g: 0, b: 0, a: 1}
+  - {r: 0, g: 1, b: 0, a: 1}
+  - {r: 0, g: 0, b: 1, a: 1}
+  restColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &1685558114
 GameObject:
   m_ObjectHideFlags: 0

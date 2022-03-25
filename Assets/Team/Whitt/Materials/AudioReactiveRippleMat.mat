@@ -11,7 +11,7 @@ Material:
   m_Shader: {fileID: -6465566751694194690, guid: 3334b57ce7c17984d9c73d2c22016c9f, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
+  m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
@@ -80,12 +80,12 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Amplitude: 0.96303475
+    - Amplitude: 0.7642053
     - EdgeBlend: 0.15
     - EdgeRadius: 4
     - GradientEdge: 4
     - RippleDensity: 0.15
-    - RippleFrequency: 0.14445522
+    - RippleFrequency: 0.11463087
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -113,7 +113,8 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - GradientColor: {r: 0.48592854, g: 0, b: 1, a: 1}
+    - BackgroundColor: {r: 0, g: 0, b: 0, a: 0}
+    - GradientColor: {r: 0, g: 0, b: 0.7642053, a: 0.7642053}
     - RippleOrigin: {r: 0, g: 0, b: 0, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
