@@ -4,28 +4,30 @@ using UnityEngine;
 
 public class PlaneWatch : MonoBehaviour
 {
-    public GameObject mockPlanes;
-    public GameObject effectPlanes;
 
-    private List<MockPlane> actualMockPlanes = null;
-    private List<EffectPlane> actualEffectPlanes = null;
+    public GameObject mockPlanesGO;
+
+    public MockPlanes _mockPlanesScript = null;
+    //private List<EffectPlane> actualEffectPlanes = null;
 
     void Start()
     {
-        EffectPlane effectPlanesParent = gameObject.GetComponent<EffectPlane>();
-        MockPlanes mockPlanesParent = gameObject.GetComponent<MockPlanes>();
-        List<MockPlane> actualMockPlanes = mockPlanesParent.planesArray;
+        //EffectPlane effectPlanesParent = gameObject.GetComponent<EffectPlane>();
+        _mockPlanesScript = mockPlanesGO.GetComponent<MockPlanes>();
         // List<EffectPlane> effectPlanes = effectPlanesParent.;
     }
 
     void Update()
     {
-        if (actualMockPlanes != null)
+        if (_mockPlanesScript != null)
         {
-            foreach (var x in actualMockPlanes)
+            foreach (var x in _mockPlanesScript.planes)
             {
                 Debug.Log(x.id);
             }
+        } else
+        {
+           Debug.Log("mock planes script is null");
         }
     }
 }
