@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: AudioReactiveMat
-  m_Shader: {fileID: -6465566751694194690, guid: 12bfe971f3eb1314f931ca8068b4889e, type: 3}
+  m_Name: AudioReactiveRippleMat
+  m_Shader: {fileID: -6465566751694194690, guid: 3334b57ce7c17984d9c73d2c22016c9f, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -20,15 +20,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - MaintTex:
-        m_Texture: {fileID: 10307, guid: 0000000000000000f000000000000000, type: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - Texture2D:
         m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - Texture2D_0e494842e7744fe2a14161f8b5e779a6:
-        m_Texture: {fileID: 2800000, guid: eae496078d11426448124eaf8b285e6b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseMap:
@@ -88,16 +80,12 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Amplitude: 1
-    - AudioLevel: 0.87257934
-    - EdgeBlend: 0.5
-    - EdgeRadius: 1
-    - GradientEdge: 1
-    - Radius: 0.25
-    - RippleDensity: 3.5
-    - RippleFrequency: 2
-    - Vector1_72f11527adab4ed8973c027e7cce645a: 3
-    - Vector1_e5df2d265ac44488ad7f6085ac439668: 1
+    - Amplitude: 0.96303475
+    - EdgeBlend: 0.15
+    - EdgeRadius: 4
+    - GradientEdge: 4
+    - RippleDensity: 0.15
+    - RippleFrequency: 0.14445522
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -125,14 +113,14 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - GradientColor: {r: 0.57786417, g: 0, b: 1, a: 0}
+    - GradientColor: {r: 0.48592854, g: 0, b: 1, a: 1}
     - RippleOrigin: {r: 0, g: 0, b: 0, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
---- !u!114 &2810573915683641680
+--- !u!114 &7926941896935808935
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
