@@ -10,25 +10,32 @@ public class EffectPlane : MonoBehaviour
 	private float sizeX;
 	private float sizeY;
 
-    void Start()
+    IEnumerator Start()
     {
-        StartCoroutine(UpdatePlaneSize());
+        plane = GameObject.CreatePrimitive(PrimitiveType.Plane);
+        plane.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+        transform.Rotate(Vector3.up * 90);
+        yield return StartCoroutine("UpdatePlaneSize");
     }
 
-    public void updateSize(float sizeX, float sizeY)
+    public void updateSize(float _sizeX, float _sizeY)
     {
-		this.sizeX = sizeX;
-		this.sizeY = sizeY;
+        Debug.Log("Updating size to: " + _sizeX);
+		sizeX = _sizeX;
+		sizeY = _sizeY;
     }
 
     IEnumerator UpdatePlaneSize()
     {
-       Debug.Log("Updating plane size");
-       if(this.plane != null)
-       {
-            plane.transform.localScale.Set(this.sizeX, this.sizeY, 1.0f);
-       }
-       yield return new WaitForSeconds(.5f);
+        while (true)
+        {
+            yield return new WaitForSeconds(0.5f);
+            if (plane)
+            {
+                Debug.Log("Updating plane size " + id);
+                plane.transform.localScale = new Vector3(sizeX, 0.1f, sizeY);
+            }
+        }
     }
 
     void Update()

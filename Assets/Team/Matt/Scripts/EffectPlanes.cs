@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EffectPlanes : MonoBehaviour
 {
-    public List<EffectPlane> planes = new List<EffectPlane>();
+    public List<EffectPlane> effectPlanes = new List<EffectPlane>();
     // Start is called before the first frame update
     void Start()
     {

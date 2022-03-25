@@ -24,21 +24,21 @@ public class PlaneWatch : MonoBehaviour
     {
         if (_mockPlanesScript != null)
         {
-            foreach (var x in _mockPlanesScript.planes)
+            foreach (var x in _mockPlanesScript.mockPlanes)
             {
-                EffectPlane foundPlane = _effectPlanesScript.planes.Find(f => f.id == x.id);
+                EffectPlane foundPlane = _effectPlanesScript.effectPlanes.Find(f => f.id == x.id);
                 if (foundPlane) {
                     // this is where we will pass the x/y size from HL2 plane to ours
                     foundPlane.updateSize(
-                        Random.Range(0f, 2f),
-                        Random.Range(0f, 2f)
+                        Random.Range(0.1f, 0.2f),
+                        Random.Range(0.1f, 0.2f)
                     );
-                } else
-                {
+                } else {
                     PlaneWatch planeW = gameObject.GetComponentInParent<PlaneWatch>();
-                    EffectPlane newPlane = planeW._effectPlanesContainer.AddComponent<EffectPlane>();
-                    newPlane.id = x.id;
-                    _effectPlanesScript.planes.Add(newPlane);
+                    EffectPlane newEffectPlane = planeW._effectPlanesContainer.AddComponent<EffectPlane>();
+                    newEffectPlane.id = x.id;
+                    // newEffectPlane.plane.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+                    _effectPlanesScript.effectPlanes.Add(newEffectPlane);
                     Debug.Log("Added new effect plane");
                 }
             }
