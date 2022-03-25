@@ -38,8 +38,6 @@ namespace ASV
         {
             observer = CoreServices.GetSpatialAwarenessSystemDataProvider<IMixedRealitySceneUnderstandingObserver>();
 
-                Debug.Log($"Start -> observer IsRunning {observer.IsRunning}");
-
             if (observer == null)
             {
                 Debug.LogError("Couldn't access Scene Understanding Observer! Please make sure the current build target is set to Universal Windows Platform. "

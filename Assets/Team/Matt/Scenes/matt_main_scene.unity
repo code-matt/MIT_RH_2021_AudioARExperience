@@ -132,6 +132,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 52444899}
+  - component: {fileID: 52444900}
+  - component: {fileID: 52444901}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -153,6 +155,34 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &52444900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 52444898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41ba1df839f79a14d8f74dc4aacddf91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SavedSceneNamePrefix: SceneUnderstanding
+  InstantiatePrefabs: 0
+  InstantiatedPrefab: {fileID: 0}
+  InstantiatedParent: {fileID: 0}
+--- !u!114 &52444901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 52444898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e6ecbbf0b5840b09d7b4ee7f0a62b7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &411822486
 GameObject:
   m_ObjectHideFlags: 0
@@ -241,7 +271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64184e750fc4a7846be317a8b17703e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  planes: []
+  effectPlanes: []
 --- !u!1 &838006366
 GameObject:
   m_ObjectHideFlags: 0
@@ -415,7 +445,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5913103f8d4a7b4ea48c55a834cbf50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  planes: []
+  mockPlanes: []
 --- !u!4 &1640637024
 Transform:
   m_ObjectHideFlags: 0
