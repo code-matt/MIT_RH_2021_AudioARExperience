@@ -28,31 +28,31 @@ namespace Microsoft.MixedReality.Toolkit.Experimental.SceneUnderstanding
         [SerializeField]
         private Transform InstantiatedParent = null;
 
-        [Header("UI")]
-        [SerializeField]
-        private Interactable autoUpdateToggle = null;
-        [SerializeField]
-        private Interactable quadsToggle = null;
-        [SerializeField]
-        private Interactable inferRegionsToggle = null;
-        [SerializeField]
-        private Interactable meshesToggle = null;
-        [SerializeField]
-        private Interactable maskToggle = null;
-        [SerializeField]
-        private Interactable platformToggle = null;
-        [SerializeField]
-        private Interactable wallToggle = null;
-        [SerializeField]
-        private Interactable floorToggle = null;
-        [SerializeField]
-        private Interactable ceilingToggle = null;
-        [SerializeField]
-        private Interactable worldToggle = null;
-        [SerializeField]
-        private Interactable completelyInferred = null;
-        [SerializeField]
-        private Interactable backgroundToggle = null;
+        //[Header("UI")]
+        //[SerializeField]
+        //private Interactable autoUpdateToggle = null;
+        //[SerializeField]
+        //private Interactable quadsToggle = null;
+        //[SerializeField]
+        //private Interactable inferRegionsToggle = null;
+        //[SerializeField]
+        //private Interactable meshesToggle = null;
+        //[SerializeField]
+        //private Interactable maskToggle = null;
+        //[SerializeField]
+        //private Interactable platformToggle = null;
+        //[SerializeField]
+        //private Interactable wallToggle = null;
+        //[SerializeField]
+        //private Interactable floorToggle = null;
+        //[SerializeField]
+        //private Interactable ceilingToggle = null;
+        //[SerializeField]
+        //private Interactable worldToggle = null;
+        //[SerializeField]
+        //private Interactable completelyInferred = null;
+        //[SerializeField]
+        //private Interactable backgroundToggle = null;
 
         #endregion Serialized Fields
 
@@ -247,7 +247,7 @@ namespace Microsoft.MixedReality.Toolkit.Experimental.SceneUnderstanding
                 if (!(observer.RequestPlaneData || observer.RequestMeshData))
                 {
                     observer.RequestPlaneData = true;
-                    quadsToggle.IsToggled = true;
+                    //quadsToggle.IsToggled = true;
                 }
             }
             ClearAndUpdateObserver();
@@ -263,7 +263,7 @@ namespace Microsoft.MixedReality.Toolkit.Experimental.SceneUnderstanding
             if (observer.RequestPlaneData)
             {
                 observer.RequestMeshData = false;
-                meshesToggle.IsToggled = false;
+                //meshesToggle.IsToggled = false;
             }
             ClearAndUpdateObserver();
         }
@@ -278,7 +278,7 @@ namespace Microsoft.MixedReality.Toolkit.Experimental.SceneUnderstanding
             if (observer.RequestMeshData)
             {
                 observer.RequestPlaneData = false;
-                quadsToggle.IsToggled = false;
+                //quadsToggle.IsToggled = false;
             }
             ClearAndUpdateObserver();
         }
@@ -345,7 +345,7 @@ namespace Microsoft.MixedReality.Toolkit.Experimental.SceneUnderstanding
             {
                 // Ensure we requesting meshes
                 observer.RequestMeshData = true;
-                meshesToggle.GetComponent<Interactable>().IsToggled = true;
+                //meshesToggle.GetComponent<Interactable>().IsToggled = true;
             }
             ClearAndUpdateObserver();
         }
@@ -379,20 +379,20 @@ namespace Microsoft.MixedReality.Toolkit.Experimental.SceneUnderstanding
         private void InitToggleButtonState()
         {
             // Configure observer
-            autoUpdateToggle.IsToggled = observer.AutoUpdate;
-            quadsToggle.IsToggled = observer.RequestPlaneData;
-            meshesToggle.IsToggled = observer.RequestMeshData;
-            maskToggle.IsToggled = observer.RequestOcclusionMask;
-            inferRegionsToggle.IsToggled = observer.InferRegions;
+            //autoUpdateToggle.IsToggled = observer.AutoUpdate;
+            //quadsToggle.IsToggled = observer.RequestPlaneData;
+            //meshesToggle.IsToggled = observer.RequestMeshData;
+            //maskToggle.IsToggled = observer.RequestOcclusionMask;
+            //inferRegionsToggle.IsToggled = observer.InferRegions;
 
-            // Filter display
-            platformToggle.IsToggled = observer.SurfaceTypes.IsMaskSet(SpatialAwarenessSurfaceTypes.Platform);
-            wallToggle.IsToggled = observer.SurfaceTypes.IsMaskSet(SpatialAwarenessSurfaceTypes.Wall);
-            floorToggle.IsToggled = observer.SurfaceTypes.IsMaskSet(SpatialAwarenessSurfaceTypes.Floor);
-            ceilingToggle.IsToggled = observer.SurfaceTypes.IsMaskSet(SpatialAwarenessSurfaceTypes.Ceiling);
-            worldToggle.IsToggled = observer.SurfaceTypes.IsMaskSet(SpatialAwarenessSurfaceTypes.World);
-            completelyInferred.IsToggled = observer.SurfaceTypes.IsMaskSet(SpatialAwarenessSurfaceTypes.Inferred);
-            backgroundToggle.IsToggled = observer.SurfaceTypes.IsMaskSet(SpatialAwarenessSurfaceTypes.Background);
+            //// Filter display
+            //platformToggle.IsToggled = observer.SurfaceTypes.IsMaskSet(SpatialAwarenessSurfaceTypes.Platform);
+            //wallToggle.IsToggled = observer.SurfaceTypes.IsMaskSet(SpatialAwarenessSurfaceTypes.Wall);
+            //floorToggle.IsToggled = observer.SurfaceTypes.IsMaskSet(SpatialAwarenessSurfaceTypes.Floor);
+            //ceilingToggle.IsToggled = observer.SurfaceTypes.IsMaskSet(SpatialAwarenessSurfaceTypes.Ceiling);
+            //worldToggle.IsToggled = observer.SurfaceTypes.IsMaskSet(SpatialAwarenessSurfaceTypes.World);
+            //completelyInferred.IsToggled = observer.SurfaceTypes.IsMaskSet(SpatialAwarenessSurfaceTypes.Inferred);
+            //backgroundToggle.IsToggled = observer.SurfaceTypes.IsMaskSet(SpatialAwarenessSurfaceTypes.Background);
         }
 
         /// <summary>
