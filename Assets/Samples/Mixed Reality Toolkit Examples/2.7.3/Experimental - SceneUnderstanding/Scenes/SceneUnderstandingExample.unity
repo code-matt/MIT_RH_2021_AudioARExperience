@@ -460,7 +460,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SavedSceneNamePrefix: DemoSceneUnderstanding
   InstantiatePrefabs: 1
-  InstantiatedPrefab: {fileID: 2577877891828628360, guid: f778fab8ff7e46040aa3a7fce92c7384, type: 3}
+  InstantiatedPrefab: {fileID: 4450459432874784414, guid: fb599926deb9903488bd71b2709e69b6, type: 3}
   InstantiatedParent: {fileID: 611194812}
   autoUpdateToggle: {fileID: 0}
   quadsToggle: {fileID: 0}

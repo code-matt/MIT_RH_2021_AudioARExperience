@@ -123,7 +123,10 @@ namespace Microsoft.MixedReality.Toolkit.Experimental.SceneUnderstanding
                 prefab.transform.SetPositionAndRotation(eventData.SpatialObject.Position, eventData.SpatialObject.Rotation);
                 float sx = eventData.SpatialObject.Quads[0].Extents.x;
                 float sy = eventData.SpatialObject.Quads[0].Extents.y;
-                prefab.transform.localScale = new Vector3(sx, 1.0f, sy);
+                prefab.transform.localScale = new Vector3(sx, sy, 1.0f);
+                ParticleSystem ps = prefab.GetComponentInChildren<ParticleSystem>();
+                ps.shape.scale.Set(sx, sy, 1);
+
                 if (InstantiatedParent)
                 {
                     prefab.transform.SetParent(InstantiatedParent);
@@ -146,6 +149,12 @@ namespace Microsoft.MixedReality.Toolkit.Experimental.SceneUnderstanding
             UpdateData(eventData.Id);
             if (observedSceneObjects != null)
             {
+                foreach (var quad in eventData.SpatialObject.Quads) {
+                    ParticleSystem ps = quad.GameObject.GetComponentInChildren<ParticleSystem>();
+                    //eventData.SpatialObject.GameObject
+                    ps.shape.scale.Set(quad.Extents.x, quad.Extents.y, 1);
+                }
+
                 if (observedSceneObjects.TryGetValue(eventData.SpatialObject.SurfaceType, out Dictionary<int, SpatialAwarenessSceneObject> sceneObjectDict))
                 {
                     observedSceneObjects[eventData.SpatialObject.SurfaceType][eventData.Id] = eventData.SpatialObject;
