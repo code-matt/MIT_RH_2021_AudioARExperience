@@ -34,6 +34,20 @@ namespace ASV
 
         #region MonoBehaviour Functions
 
+        /// <summary>
+        /// REALITY HACK CODE
+        public GameObject mockPlanesGO;
+        public GameObject effectPlanesGO;
+
+        public MockPlanes _mockPlanesScript = null;
+        public EffectPlanes _effectPlanesScript = null;
+
+        public GameObject _mockPlanesContainer = null;
+        public GameObject _effectPlanesContainer = null;
+        /// </summary>
+
+
+
         protected override void Start()
         {
             observer = CoreServices.GetSpatialAwarenessSystemDataProvider<IMixedRealitySceneUnderstandingObserver>();
@@ -46,6 +60,12 @@ namespace ASV
             }
             instantiatedPrefabs = new List<GameObject>();
             observedSceneObjects = new Dictionary<SpatialAwarenessSurfaceTypes, Dictionary<int, SpatialAwarenessSceneObject>>();
+
+            ////
+            ///REALITY HACK CODE
+            ///
+            _mockPlanesScript = mockPlanesGO.GetComponent<MockPlanes>();
+            _effectPlanesScript = effectPlanesGO.GetComponent<EffectPlanes>();
         }
 
         protected override void OnEnable()
@@ -70,7 +90,8 @@ namespace ASV
 
         public void OnObservationAdded(MixedRealitySpatialAwarenessEventData<SpatialAwarenessSceneObject> eventData)
         {
-                Debug.Log($"OnObservationAdded");
+            Debug.Log("Hello");
+            Debug.Log($"OnObservationAdded");
             // This method called everytime a SceneObject created by the SU observer
             // The eventData contains everything you need do something useful
 
@@ -103,7 +124,8 @@ namespace ASV
             {
                 foreach (var quad in eventData.SpatialObject.Quads)
                 {
-                    quad.GameObject.GetComponent<Renderer>().material.color = ColorForSurfaceType(eventData.SpatialObject.SurfaceType);
+                    Debug.Log(quad);
+                    //quad.GameObject.GetComponent<Renderer>().material.color = ColorForSurfaceType(eventData.SpatialObject.SurfaceType);
                 }
 
             }
@@ -295,6 +317,38 @@ namespace ASV
             else
             {
                 observer.SurfaceTypes |= surfaceType;
+            }
+        }
+
+        void Update()
+        {
+            if (_mockPlanesScript != null)
+            {
+                foreach (var x in _mockPlanesScript.mockPlanes)
+                {
+                    EffectPlane foundPlane = _effectPlanesScript.effectPlanes.Find(f => f.id == x.id);
+                    if (foundPlane)
+                    {
+                        // this is where we will pass the x/y size from HL2 plane to ours
+                        foundPlane.updateSize(
+                            Random.Range(0.1f, 0.2f),
+                            Random.Range(0.1f, 0.2f)
+                        );
+                    }
+                    else
+                    {
+                        //PlaneWatch planeW = gameObject.GetComponentInParent<PlaneWatch>();
+                        EffectPlane newEffectPlane = _effectPlanesContainer.AddComponent<EffectPlane>();
+                        newEffectPlane.id = x.id;
+                        // newEffectPlane.plane.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+                        _effectPlanesScript.effectPlanes.Add(newEffectPlane);
+                        Debug.Log("Added new effect plane");
+                    }
+                }
+            }
+            else
+            {
+                Debug.Log("mock planes script is null");
             }
         }
 
