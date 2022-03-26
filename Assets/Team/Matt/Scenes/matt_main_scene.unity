@@ -132,7 +132,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 52444899}
-  - component: {fileID: 52444900}
   - component: {fileID: 52444901}
   m_Layer: 0
   m_Name: GameObject
@@ -155,28 +154,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &52444900
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 52444898}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41ba1df839f79a14d8f74dc4aacddf91, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SavedSceneNamePrefix: SceneUnderstanding
-  InstantiatePrefabs: 1
-  InstantiatedPrefab: {fileID: 2948786278823005684, guid: 61a3c2026830ec149b06e927817a19fb, type: 3}
-  InstantiatedParent: {fileID: 52444899}
-  mockPlanesGO: {fileID: 1640637022}
-  effectPlanesGO: {fileID: 726325418}
-  _mockPlanesScript: {fileID: 0}
-  _effectPlanesScript: {fileID: 0}
-  _mockPlanesContainer: {fileID: 1267510375}
-  _effectPlanesContainer: {fileID: 838006366}
 --- !u!114 &52444901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,6 +166,67 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e6ecbbf0b5840b09d7b4ee7f0a62b7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &344709079
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1899014737571765291, guid: 45fc9f1ba6afe99419d6d17bee836ae8, type: 3}
+      propertyPath: m_Name
+      value: UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 2849168735009419730, guid: 45fc9f1ba6afe99419d6d17bee836ae8, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2849168735009419730, guid: 45fc9f1ba6afe99419d6d17bee836ae8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.3468132
+      objectReference: {fileID: 0}
+    - target: {fileID: 2849168735009419730, guid: 45fc9f1ba6afe99419d6d17bee836ae8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.042208403
+      objectReference: {fileID: 0}
+    - target: {fileID: 2849168735009419730, guid: 45fc9f1ba6afe99419d6d17bee836ae8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.6048565
+      objectReference: {fileID: 0}
+    - target: {fileID: 2849168735009419730, guid: 45fc9f1ba6afe99419d6d17bee836ae8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2849168735009419730, guid: 45fc9f1ba6afe99419d6d17bee836ae8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2849168735009419730, guid: 45fc9f1ba6afe99419d6d17bee836ae8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2849168735009419730, guid: 45fc9f1ba6afe99419d6d17bee836ae8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2849168735009419730, guid: 45fc9f1ba6afe99419d6d17bee836ae8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2849168735009419730, guid: 45fc9f1ba6afe99419d6d17bee836ae8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2849168735009419730, guid: 45fc9f1ba6afe99419d6d17bee836ae8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8851358865100380168, guid: 45fc9f1ba6afe99419d6d17bee836ae8, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 45fc9f1ba6afe99419d6d17bee836ae8, type: 3}
 --- !u!1 &411822486
 GameObject:
   m_ObjectHideFlags: 0
