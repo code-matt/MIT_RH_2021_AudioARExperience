@@ -104,18 +104,7 @@ public class AudioSyncParticles : AudioSyncer
 
 		//Debug.Log(planeScale);
 
-		if (planeScale.x * planeScale.y < 1)
-        {
-			emVal.rateOverTime = planeScale.x * planeScale.y * 2.0f;
-        }
-		if(planeScale.x * planeScale.y >= 1 && planeScale.x * planeScale.y < 5)
-        {
-			emVal.rateOverTime = planeScale.x * planeScale.y * 5.0f;
-        }
-		if(planeScale.x * planeScale.y >= 5)
-        {
-			emVal.rateOverTime = planeScale.x * planeScale.y * 10.0f;
-        }
+		emVal.rateOverTime = planeScale.x * planeScale.y;
 	}
 
 	public override void OnBeat()
