@@ -5,19 +5,16 @@ using UnityEngine;
 public class MockPlanes : MonoBehaviour
 {
     // Start is called before the first frame update
-    public List<MockPlane> mockPlanes = new List<MockPlane>(); 
+    public List<MockPlane> planesArray = new List<MockPlane>(); 
 
     void Start()
     {
-        for (int i = 0; i < 1; i++)
+        for (int i = 0; i < 50; i++)
         {
-           PlaneWatch planeContainer = gameObject.GetComponentInParent<PlaneWatch>();
-           MockPlane mockPlane = planeContainer._mockPlanesContainer.AddComponent<MockPlane>();
-           mockPlanes.Add(mockPlane);
-           //mockPlane.plane = GameObject.CreatePrimitive(PrimitiveType.Plane);
-           //mockPlane.plane.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
-           //mockPlane.transform.Rotate(Vector3.up * 90);
-           mockPlane.id = Random.Range(0, 47465);
+           MockPlane plane = ScriptableObject.CreateInstance<MockPlane>();
+           planesArray.Add(plane);
+           plane.plane = GameObject.CreatePrimitive(PrimitiveType.Plane);
+           plane.id = Random.Range(0, 47465);
         }
     }
 
