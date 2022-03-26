@@ -15,6 +15,8 @@ public class SelectAudioSource : MonoBehaviour
 
     public bool showStartUI = true;
 
+    bool isPlaying = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +37,7 @@ public class SelectAudioSource : MonoBehaviour
             
             while(!(Microphone.GetPosition(null) > 0)) { }
             _source.Play();
+            isPlaying = true;
         }
 
         if (showStartUI == false && useMic == false)
@@ -42,15 +45,38 @@ public class SelectAudioSource : MonoBehaviour
             _clip = demoSong;
             _source.loop = true;
             _source.Play();
+            isPlaying = true;
         }
     }
 
     public void DeactivateAudio()
     {
         _source.Stop();
+        isPlaying = false;
         if (useMic)
             Microphone.End("Built-In Microphone");
         _clip = null;
         showStartUI = true;
+    }
+
+    public void EnterPlaylistMode()
+    {
+        useMic = false;
+        showStartUI = false;
+    }
+
+    public void EnterAmbientAudioMode()
+    {
+        useMic = true;
+        showStartUI = false;
+    }
+
+    public void ToggleAudio()
+    {
+        if (isPlaying)
+            _source.Pause();
+
+        if (!isPlaying)
+            _source.Play();
     }
 }
