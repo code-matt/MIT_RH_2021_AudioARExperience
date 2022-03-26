@@ -125,7 +125,41 @@ namespace ASV
                 foreach (var quad in eventData.SpatialObject.Quads)
                 {
                     Debug.Log(quad);
+                    EffectPlane foundPlane = _effectPlanesScript.effectPlanes.Find(f => f.id == quad.Id);
+                    if (foundPlane)
+                    {
+                        // this is where we will pass the x/y size from HL2 plane to ours
+                        //foundPlane.updateSize(
+                            //Random.Range(0.1f, 0.2f),
+                            //Random.Range(0.1f, 0.2f)
+                        //);
+                        foundPlane.updatePosition(
+                            quad.Extents.x,
+                            quad.Extents.y
+
+                        );
+                        foundPlane.stillUsed = true;
+                    }
+                    else
+                    {
+                        //PlaneWatch planeW = gameObject.GetComponentInParent<PlaneWatch>();
+                        EffectPlane newEffectPlane = _effectPlanesContainer.AddComponent<EffectPlane>();
+                        newEffectPlane.id = quad.Id;
+                        // newEffectPlane.plane.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+                        _effectPlanesScript.effectPlanes.Add(newEffectPlane);
+                        Debug.Log("Added new effect plane");
+                    }
                     //quad.GameObject.GetComponent<Renderer>().material.color = ColorForSurfaceType(eventData.SpatialObject.SurfaceType);
+                }
+                foreach (var effectP in _effectPlanesScript.effectPlanes)
+                {
+                    if (!effectP.stillUsed)
+                    {
+                        Debug.Log("Destroying effectPlane for: " + effectP.id);
+                        Destroy(effectP.plane);
+                        Destroy(effectP);
+                    }
+                    effectP.stillUsed = false;
                 }
 
             }

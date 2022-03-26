@@ -7,8 +7,11 @@ public class EffectPlane : MonoBehaviour
 	public GameObject plane;
 	public int id;
 
-	private float sizeX;
-	private float sizeY;
+	private float sizeX = 0.1f;
+	private float sizeY = 0.1f;
+    private float posX;
+    private float posY;
+    public bool stillUsed = false;
 
     void Start()
     {
@@ -23,6 +26,18 @@ public class EffectPlane : MonoBehaviour
         //Debug.Log("Updating size to: " + _sizeX);
 		sizeX = _sizeX;
 		sizeY = _sizeY;
+    }
+
+    public void updatePosition(float _posX, float _posY)
+    {
+        //Debug.Log("Updating size to: " + _sizeX);
+        posX = _posX;
+        posY = _posY;
+        if(plane)
+        {
+            Debug.Log("Updating Position For.." + id);
+            plane.transform.position.Set(_posX, posY, 0.0f);
+;       }
     }
 
     IEnumerator UpdatePlaneSize()
