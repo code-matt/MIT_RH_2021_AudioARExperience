@@ -474,6 +474,7 @@ MonoBehaviour:
   worldToggle: {fileID: 0}
   completelyInferred: {fileID: 0}
   backgroundToggle: {fileID: 0}
+  demoParticleSys: {fileID: 0}
 --- !u!1001 &81117436
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1559,7 +1560,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!82 &294381093
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2915,6 +2916,10 @@ PrefabInstance:
     - target: {fileID: 1899014737571765291, guid: 45fc9f1ba6afe99419d6d17bee836ae8, type: 3}
       propertyPath: m_Name
       value: UI (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899014737571765291, guid: 45fc9f1ba6afe99419d6d17bee836ae8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2027043974972256188, guid: 45fc9f1ba6afe99419d6d17bee836ae8, type: 3}
       propertyPath: m_text

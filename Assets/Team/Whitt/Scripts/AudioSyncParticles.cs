@@ -125,15 +125,15 @@ public class AudioSyncParticles : AudioSyncer
 		// Refresh Coroutines to modify properties
 
 		StopCoroutine("UpdateSpeed");
-		//StopCoroutine("BurstEmitter");
+		StopCoroutine("BurstEmitter");
 
 		StartCoroutine("UpdateSpeed", levelMax);
-		//StartCoroutine("BurstEmitter", levelMax);
+		StartCoroutine("BurstEmitter", levelMax);
 
 		Color _c = RandomColor();
 
-		//StopCoroutine("MoveToColor");
-		//StartCoroutine("MoveToColor", _c);
+		StopCoroutine("MoveToColor");
+		StartCoroutine("MoveToColor", _c);
 	}
 
 	private void Start()
