@@ -85,7 +85,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - Amplitude: 1
-    - AudioLevel: 0.41757393
+    - AudioLevel: 0.5899952
     - Radius: 0.25
     - Vector1_72f11527adab4ed8973c027e7cce645a: 3
     - Vector1_e5df2d265ac44488ad7f6085ac439668: 1

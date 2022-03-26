@@ -76,6 +76,10 @@ namespace Microsoft.MixedReality.Toolkit.Experimental.SceneUnderstanding
                     + "Visit https://docs.microsoft.com/windows/mixed-reality/mrtk-unity/features/spatial-awareness/scene-understanding for more information.");
                 return;
             }
+
+            ToggleGeneratePlanes();
+            ToggleGenerateMeshes();
+
             InitToggleButtonState();
             instantiatedPrefabs = new List<GameObject>();
             observedSceneObjects = new Dictionary<SpatialAwarenessSurfaceTypes, Dictionary<int, SpatialAwarenessSceneObject>>();
@@ -218,11 +222,14 @@ namespace Microsoft.MixedReality.Toolkit.Experimental.SceneUnderstanding
         /// </summary>
         public void ClearScene()
         {
-            foreach (GameObject gameObject in instantiatedPrefabs)
+            if (instantiatedPrefabs != null)
             {
-                Destroy(gameObject);
+                foreach (GameObject gameObject in instantiatedPrefabs)
+                {
+                    Destroy(gameObject);
+                }
+                instantiatedPrefabs.Clear();
             }
-            instantiatedPrefabs.Clear();
             observer.ClearObservations();
         }
 

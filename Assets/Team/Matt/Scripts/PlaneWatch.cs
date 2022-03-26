@@ -7,6 +7,7 @@ using UnityEngine;
     public class PlaneWatch : MonoBehaviour
     {
 
+        public GameObject PlanePrefabGO;
         public GameObject mockPlanesGO;
         public GameObject effectPlanesGO;
 
@@ -36,8 +37,9 @@ using UnityEngine;
                             Random.Range(0.1f, 0.2f)
                         );
                     } else {
-                        PlaneWatch planeW = gameObject.GetComponentInParent<PlaneWatch>();
-                        EffectPlane newEffectPlane = planeW._effectPlanesContainer.AddComponent<EffectPlane>();
+                    var planeW = Instantiate(PlanePrefabGO);//gameObject.GetComponentInParent<PlaneWatch>();
+
+                        EffectPlane newEffectPlane = _effectPlanesContainer.AddComponent<EffectPlane>();
                         newEffectPlane.id = x.id;
                         // newEffectPlane.plane.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
                         _effectPlanesScript.effectPlanes.Add(newEffectPlane);
