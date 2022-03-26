@@ -125,7 +125,8 @@ namespace Microsoft.MixedReality.Toolkit.Experimental.SceneUnderstanding
                 float sy = eventData.SpatialObject.Quads[0].Extents.y;
                 prefab.transform.localScale = new Vector3(sx, sy, 1.0f);
                 ParticleSystem ps = prefab.GetComponentInChildren<ParticleSystem>();
-                ps.shape.scale.Set(sx, sy, 1);
+                var psScale = ps.shape;
+                psScale.scale = new Vector3(sx, sy, 1);
 
                 if (InstantiatedParent)
                 {
@@ -151,8 +152,8 @@ namespace Microsoft.MixedReality.Toolkit.Experimental.SceneUnderstanding
             {
                 foreach (var quad in eventData.SpatialObject.Quads) {
                     ParticleSystem ps = quad.GameObject.GetComponentInChildren<ParticleSystem>();
-                    //eventData.SpatialObject.GameObject
-                    ps.shape.scale.Set(quad.Extents.x, quad.Extents.y, 1);
+                    var psScale = ps.shape;
+                    psScale.scale = new Vector3(quad.Extents.x, quad.Extents.y, 1);
                 }
 
                 if (observedSceneObjects.TryGetValue(eventData.SpatialObject.SurfaceType, out Dictionary<int, SpatialAwarenessSceneObject> sceneObjectDict))
