@@ -85,7 +85,7 @@ Material:
     - EdgeRadius: 4
     - GradientEdge: 4
     - RippleDensity: 0.15
-    - RippleFrequency: 0.12563868
+    - RippleFrequency: 0.11527399
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -114,7 +114,7 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - BackgroundColor: {r: 0, g: 0, b: 0, a: 0.92156863}
-    - GradientColor: {r: 0.8375912, g: 0, b: 0, a: 0}
+    - GradientColor: {r: 0, g: 0.76849324, b: 0, a: 0}
     - RippleOrigin: {r: 0, g: 0, b: 0, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
