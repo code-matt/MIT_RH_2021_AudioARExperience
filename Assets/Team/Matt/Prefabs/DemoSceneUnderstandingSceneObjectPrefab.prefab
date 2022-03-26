@@ -202,7 +202,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7984562311453334286}
   - component: {fileID: 3402978075079478295}
-  - component: {fileID: -6823043542937987223}
   m_Layer: 0
   m_Name: DemoSceneUnderstandingSceneObjectPrefab
   m_TagString: Untagged
@@ -244,36 +243,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 0.5}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &-6823043542937987223
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4450459432874784414}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb0622f7b706e75459204819a56f9668, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bias: 25
-  timeStep: 0.15
-  timeToBeat: 0.05
-  restSmoothTime: 1
-  audioLevel: 0
-  frequencyLevel: 0
-  reactiveMat: {fileID: 2100000, guid: 01064e10265498f4d9739b7d5a74dd63, type: 2}
-  PropertyName_amplitude: Amplitute
-  PropertyName_frequency: RippleFrequency
-  PropertyName_color: GradientColor
-  levelMax: 1
-  freqMax: 0.15
-  levelMin: 0
-  beatColors:
-  - {r: 1, g: 0, b: 0, a: 0}
-  - {r: 0, g: 1, b: 0, a: 0}
-  - {r: 0, g: 0, b: 1, a: 0}
-  restColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &6976370194182884529
 GameObject:
   m_ObjectHideFlags: 0
