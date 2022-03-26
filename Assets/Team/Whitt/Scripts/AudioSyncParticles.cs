@@ -106,15 +106,15 @@ public class AudioSyncParticles : AudioSyncer
 
 		if (planeScale.x * planeScale.y < 1)
         {
-			emVal.rateOverTime = 10f;
+			emVal.rateOverTime = planeScale.x * planeScale.y * 2.0f;
         }
 		if(planeScale.x * planeScale.y >= 1 && planeScale.x * planeScale.y < 5)
         {
-			emVal.rateOverTime = 25f;
+			emVal.rateOverTime = planeScale.x * planeScale.y * 5.0f;
         }
 		if(planeScale.x * planeScale.y >= 5)
         {
-			emVal.rateOverTime = 100f;
+			emVal.rateOverTime = planeScale.x * planeScale.y * 10.0f;
         }
 	}
 
