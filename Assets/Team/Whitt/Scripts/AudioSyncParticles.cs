@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class AudioSyncParticles : AudioSyncer
 {
+	public Vector3 planeScale;
+	
 	public ParticleSystem psReactive;
 	public Material psMat;
 
@@ -94,8 +96,26 @@ public class AudioSyncParticles : AudioSyncer
 
 		//update particle system properties
 		psSpeed = Mathf.Lerp(psSpeed, levelMin, restSmoothTime * Time.deltaTime);
+		
 		var psVal = psReactive.velocityOverLifetime;
 		psVal.zMultiplier = psSpeed * 10f;
+
+		var emVal = psReactive.emission;
+
+		//Debug.Log(planeScale);
+
+		if (planeScale.x * planeScale.y < 1)
+        {
+			emVal.rateOverTime = 10f;
+        }
+		if(planeScale.x * planeScale.y >= 1 && planeScale.x * planeScale.y < 5)
+        {
+			emVal.rateOverTime = 25f;
+        }
+		if(planeScale.x * planeScale.y >= 5)
+        {
+			emVal.rateOverTime = 100f;
+        }
 	}
 
 	public override void OnBeat()
@@ -105,15 +125,15 @@ public class AudioSyncParticles : AudioSyncer
 		// Refresh Coroutines to modify properties
 
 		StopCoroutine("UpdateSpeed");
-		StopCoroutine("BurstEmitter");
+		//StopCoroutine("BurstEmitter");
 
 		StartCoroutine("UpdateSpeed", levelMax);
-		StartCoroutine("BurstEmitter", levelMax);
+		//StartCoroutine("BurstEmitter", levelMax);
 
 		Color _c = RandomColor();
 
-		StopCoroutine("MoveToColor");
-		StartCoroutine("MoveToColor", _c);
+		//StopCoroutine("MoveToColor");
+		//StartCoroutine("MoveToColor", _c);
 	}
 
 	private void Start()

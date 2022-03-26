@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace Microsoft.MixedReality.Toolkit.Experimental.SceneUnderstanding
-{
+{    
     /// <summary>
     /// Demo class to show different ways of visualizing the space using scene understanding.
     /// </summary>
@@ -63,6 +63,8 @@ namespace Microsoft.MixedReality.Toolkit.Experimental.SceneUnderstanding
         private Dictionary<SpatialAwarenessSurfaceTypes, Dictionary<int, SpatialAwarenessSceneObject>> observedSceneObjects;
 
         #endregion Private Fields
+
+        public ParticleSystem demoParticleSys;
 
         #region MonoBehaviour Functions
 
@@ -124,8 +126,11 @@ namespace Microsoft.MixedReality.Toolkit.Experimental.SceneUnderstanding
                 float sx = eventData.SpatialObject.Quads[0].Extents.x;
                 float sy = eventData.SpatialObject.Quads[0].Extents.y;
                 prefab.transform.localScale = new Vector3(sx, sy, 1.0f);
-                ParticleSystem ps = prefab.GetComponentInChildren<ParticleSystem>();
-                ps.shape.scale.Set(sx, sy, 1);
+                demoParticleSys = prefab.GetComponentInChildren<ParticleSystem>();
+                demoParticleSys.shape.scale.Set(sx, sy, 1);
+
+                prefab.GetComponentInChildren<AudioSyncParticles>().planeScale = demoParticleSys.shape.scale;
+
 
                 if (InstantiatedParent)
                 {
