@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2577877891828628357}
   - component: {fileID: 2577877891828628362}
   - component: {fileID: 2577877891828628363}
-  - component: {fileID: 2577877891828628359}
+  - component: {fileID: 26414307154747750}
   m_Layer: 0
   m_Name: ReactivePlane
   m_TagString: Untagged
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 2577877891828628360}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -97,7 +97,7 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &2577877891828628359
+--- !u!114 &26414307154747750
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -116,14 +116,14 @@ MonoBehaviour:
   audioLevel: 0
   frequencyLevel: 0
   reactiveMat: {fileID: 2100000, guid: 01064e10265498f4d9739b7d5a74dd63, type: 2}
-  PropertyName_amplitude: Amplitude
+  PropertyName_amplitude: Amplitute
   PropertyName_frequency: RippleFrequency
   PropertyName_color: GradientColor
   levelMax: 1
   freqMax: 0.15
   levelMin: 0
   beatColors:
-  - {r: 1, g: 0, b: 0, a: 1}
-  - {r: 0, g: 1, b: 0, a: 1}
-  - {r: 0, g: 0, b: 1, a: 1}
+  - {r: 1, g: 0, b: 0, a: 0}
+  - {r: 0, g: 1, b: 0, a: 0}
+  - {r: 0, g: 0, b: 1, a: 0}
   restColor: {r: 0, g: 0, b: 0, a: 0}

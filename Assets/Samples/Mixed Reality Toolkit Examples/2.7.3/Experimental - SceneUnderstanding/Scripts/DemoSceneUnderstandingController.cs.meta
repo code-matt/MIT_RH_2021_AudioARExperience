@@ -1,0 +1,25 @@
+fileFormatVersion: 2
+guid: 4bf738c1798c39b4e9883a2f67f5e57c
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - InstantiatedPrefab: {instanceID: 0}
+  - InstantiatedParent: {instanceID: 0}
+  - autoUpdateToggle: {instanceID: 0}
+  - quadsToggle: {instanceID: 0}
+  - inferRegionsToggle: {instanceID: 0}
+  - meshesToggle: {instanceID: 0}
+  - maskToggle: {instanceID: 0}
+  - platformToggle: {instanceID: 0}
+  - wallToggle: {instanceID: 0}
+  - floorToggle: {instanceID: 0}
+  - ceilingToggle: {instanceID: 0}
+  - worldToggle: {instanceID: 0}
+  - completelyInferred: {instanceID: 0}
+  - backgroundToggle: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

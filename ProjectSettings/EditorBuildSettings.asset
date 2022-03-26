@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Samples/Mixed Reality Toolkit Examples/2.7.3/Experimental - SceneUnderstanding/Scenes/SceneUnderstandingExample.unity
+    guid: d42a352dc9a8c4d4990a924687759199
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 559c0d6015184374794939d70e548296, type: 2}
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 5621812c06d818648a43522f3ed6710b, type: 2}
